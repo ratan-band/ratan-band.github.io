@@ -49,9 +49,8 @@
             }
 
             .button {
-                background-color: #C4C1BA;
-                margin-top: 20px;
-                /*padding: 20px 0 20px 0;*/
+                background-color: #EAEAE0;
+                margin-top: 15px;
                 padding: 10px 0 10px 0;
                 width: 100%;
                 text-align: center;
@@ -62,7 +61,7 @@
             }
 
             .button:hover {
-                background-color: #D4D1CA;
+                background-color: #FAFAF0;
             }
 
             .button img {
@@ -70,6 +69,7 @@
                 max-width: 160px;
                 max-height: 40px;
             }
+
             a {
                 color: #000000;
                 text-decoration: none;
@@ -78,9 +78,26 @@
             a:hover {
                 color: #555555;
             }
+
+            audio {
+                filter: grayscale(1) contrast(70%) invert(100%) sepia(5%); 
+                width: 100%;
+                height: 40px;
+            }
+
+            .preview {
+                width: 100%;
+                text-align: center;
+                color: #555555;
+                font-size: 0.7em;
+                margin-top: 10px;
+                /*margin-bottom: -10px;*/
+                user-select: none;
+            }
         </style>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta name="description" content="Fan of Tool? Check out the new album Drain by RATAN."/>
+        <link rel="manifest" href="/site.webmanifest">
         <link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet">
     </head>
     <body>
@@ -88,6 +105,12 @@
             <div id="inner-content">
                 <h1>RATAN</h1>
                 <img class="album-art" src="drain.jpg"/>
+                <div class="preview">
+                    <audio controls preload="auto">
+                        <source src="snippet.m4a"/>
+                    </audio>
+                    (preview)
+                </div>
                 <a class="button" href="https://music.apple.com/us/album/drain/1525722950">
                     <img src="apple_music.svg" title="Apple Music"/>
                 </a>
@@ -97,13 +120,15 @@
                 <a class="button" href="https://play.google.com/store/music/album/RATAN_Drain?id=Biolkih3u2jhksmie2dnsqhnmea">
                     <img src="google_play.svg" title="Google Play"/>
                 </a>
+                <a class="button" href="https://open.spotify.com/album/2K4OlP64i0Y0po6taGzVtc">
+                    <img src="spotify.svg" title="Spotify"/>
+                </a>
                 <a class="button" href="https://music.youtube.com/playlist?list=OLAK5uy_mRBPcmTSovcmsme3H5e-WlPPygchRS_2c">
                     <img src="youtube_music.svg" title="YouTube Music"/>
                 </a>
                 <a class="button" href="https://instagr.am/ratan.band">
                     <img src="instagram.svg" title="Instagram"/>
                 </a>
-                <!-- <a class="button" href="">Spotify</a> -->
             </div>
         </div>
     </body>
