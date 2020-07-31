@@ -4,24 +4,79 @@
         <title>RATAN</title>
         <style type="text/css">
             body, html {
-                margin: 0; padding: 0; height: 100%; overflow: hidden;
+                margin: 0;
+                padding: 0;
+                background-color: #14191b;
+                color: #FFFFFF;
+                font-family: 'Karla', sans-serif;
+                font-size: 1.1em;
+                padding: 10px;
             }
 
             #content {
-                position: absolute; left: 0; right: 0; bottom: 0; top: 0px; 
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
             }
-            
-            iframe {
-              height: 100vh;
-              width: 100vw;
-              border: none;
+
+            #inner-content {
+                width: 75%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                max-width: 400px;
+
+            }
+
+            h1 {
+                margin: 0px;
+                padding: 0px;
+                letter-spacing: .5em;
+                text-align: center;
+                padding-left: .5em;
+            }            
+
+            img {
+                max-width:100%;
+                max-height:100%;
+                height: auto;
+                width: auto;
+                border-radius: 10px;
+                margin-top: 20px;
+            }
+
+            .button {
+                background-color: #C4C1BA;
+                margin-top: 20px;
+                padding: 20px 0 20px 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            a {
+                color: #000000;
+                text-decoration: none;
+            }
+
+            a:hover {
+                color: #555555;
             }
         </style>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet">
     </head>
     <body>
         <div id="content">
-            <iframe src="https://linktr.ee/ratan.band" />
+            <div id="inner-content">
+                <h1>RATAN</h1>
+                <img src="drain.jpg"/>
+                <a class="button" href="https://ratan.bandcamp.com">Bandcamp</a>
+                <a class="button" href="https://music.youtube.com/playlist?list=OLAK5uy_mRBPcmTSovcmsme3H5e-WlPPygchRS_2c">YouTube Music</a>
+                <!-- <a class="button" href="">Spotify</a> -->
+                <a class="button" href="https://instagr.am/ratan.band">Instagram</a>
+            </div>
         </div>
     </body>
 </html>
