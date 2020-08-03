@@ -103,11 +103,26 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-33922028-2"></script>
         <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-          gtag('config', 'UA-33922028-2');
+            gtag('config', 'UA-33922028-2');
+            
+            /**
+            * Function that registers a click on an outbound link in Analytics.
+            * This function takes a valid URL string as an argument, and uses that URL string
+            * as the event label. Setting the transport method to 'beacon' lets the hit be sent
+            * using 'navigator.sendBeacon' in browser that support it.
+            */
+            var getOutboundLink = function(url) {
+              gtag('event', 'click', {
+                'event_category': 'outbound',
+                'event_label': url,
+                'transport_type': 'beacon',
+                'event_callback': function(){document.location = url;}
+              });
+            }
         </script>
     </head>
     <body>
@@ -121,22 +136,34 @@
                     </audio>
                     (preview)
                 </div>
-                <a class="button" href="https://music.apple.com/us/album/drain/1525722950">
+                <a class="button"
+                   href="https://music.apple.com/us/album/drain/1525722950"
+                   onclick="getOutboundLink('https://music.apple.com/us/album/drain/1525722950'); return false;">
                     <img src="apple_music.svg" title="Apple Music"/>
                 </a>
-                <a class="button" href="https://ratan.bandcamp.com">
+                <a class="button"
+                   href="https://ratan.bandcamp.com"
+                   onclick="getOutboundLink('https://ratan.bandcamp.com'); return false;">
                     <img src="bandcamp.svg" title="Bandcamp"/>
                 </a>
-                <a class="button" href="https://play.google.com/store/music/album/RATAN_Drain?id=Biolkih3u2jhksmie2dnsqhnmea">
+                <a class="button"
+                   href="https://play.google.com/store/music/album/RATAN_Drain?id=Biolkih3u2jhksmie2dnsqhnmea"
+                   onclick="getOutboundLink('https://play.google.com/store/music/album/RATAN_Drain?id=Biolkih3u2jhksmie2dnsqhnmea'); return false;">
                     <img src="google_play.svg" title="Google Play"/>
                 </a>
-                <a class="button" href="https://open.spotify.com/album/2K4OlP64i0Y0po6taGzVtc">
+                <a class="button"
+                   href="https://open.spotify.com/album/2K4OlP64i0Y0po6taGzVtc"
+                   onclick="getOutboundLink('https://open.spotify.com/album/2K4OlP64i0Y0po6taGzVtc'); return false;">
                     <img src="spotify.svg" title="Spotify"/>
                 </a>
-                <a class="button" href="https://music.youtube.com/playlist?list=OLAK5uy_mRBPcmTSovcmsme3H5e-WlPPygchRS_2c">
+                <a class="button"
+                   href="https://music.youtube.com/playlist?list=OLAK5uy_mRBPcmTSovcmsme3H5e-WlPPygchRS_2c"
+                   onclick="getOutboundLink('https://music.youtube.com/playlist?list=OLAK5uy_mRBPcmTSovcmsme3H5e-WlPPygchRS_2c'); return false;">
                     <img src="youtube_music.svg" title="YouTube Music"/>
                 </a>
-                <a class="button" href="https://instagr.am/ratan.band">
+                <a class="button"
+                   href="https://instagr.am/ratan.band"
+                   onclick="getOutboundLink('https://instagr.am/ratan.band'); return false;">
                     <img src="instagram.svg" title="Instagram"/>
                 </a>
             </div>
