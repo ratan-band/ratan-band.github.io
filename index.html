@@ -43,7 +43,7 @@
                 color: #FFFFFF;
                 font-family: 'Karla', sans-serif;
                 font-size: 1.1em;
-                padding: 10px;
+                padding: 5px;
             }
 
             #content {
@@ -54,12 +54,12 @@
             }
 
             #inner-content {
-                width: 85%;
+                width: 80%;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                max-width: 400px;
+                max-width: 320px;
                 min-width: 200px;
 
             }
@@ -71,7 +71,19 @@
                 text-align: center;
                 padding-left: .5em;
                 user-select: none;
+            }
+
+            .album-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
             }            
+
+            .album-name {
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
 
             .album-art {
                 max-width:100%;
@@ -79,30 +91,74 @@
                 height: auto;
                 width: auto;
                 border-radius: 10px;
-                margin-top: 20px;
+                /*margin-top: 20px;*/
             }
 
-            .button {
-                background-color: #EAEAE0;
-                margin-top: 15px;
+            .social-buttons {
+                background-color: #24292b;
+                margin-top: 5px;
                 padding: 10px 0 10px 0;
                 width: 100%;
                 text-align: center;
-                height: 40px;
+                height: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+                margin-bottom: 5px;
+            }
+
+            .social-button {
+                /*background-color: #EAEAE0;*/
+                padding: 10px 0 10px 0;
+                width: 100%;
+                text-align: center;
+                height: 35px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 flex-direction: row;
             }
 
-            .button:hover {
+            .social-button:hover {
+                background-color: #44494b;
+            }
+
+            .social-button img {
+                height: 100%;
+                max-width: 160px;
+                max-height: 40px;
+            }
+
+            .button {
                 background-color: #FAFAF0;
+                /*border-top: 2px #000000 solid ;*/
+                /*margin-top: 6px;*/
+                border-top: 2px #999990 solid ;
+                padding: 8px 0 8px 0;
+                width: 100%;
+                text-align: center;
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+            }
+
+            .button:first-of-type {
+                border-top: none;
+                margin-top: 6px;
+            }
+
+            .button:hover {
+                background-color: #EAEAE0;
             }
 
             .button img {
                 height: 100%;
-                max-width: 160px;
-                max-height: 40px;
+                /*width: 120px;*/
+                max-width: 140px;
+                max-height: 50px;
             }
 
             a {
@@ -123,19 +179,23 @@
             .preview {
                 width: 100%;
                 text-align: center;
-                color: #555555;
+                color: #666666;
                 font-size: 0.7em;
-                margin-top: 10px;
+                margin-top: 6px;
                 /*margin-bottom: -10px;*/
                 user-select: none;
+                float: left;
+                margin-bottom: 5px;
+                /*font-weight: bold;*/
             }
         </style>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-        <meta name="description" content="Fan of Tool? Check out the new album Drain by RATAN."/>
+        <meta name="description" content="49 minutes of vibrating instrumental prog metal inspired by Tool. RATAN - Drain out now."/>
         <meta name="og:image" content="drain.jpg" />
         <meta name="og:audio" content="https://raw.githubusercontent.com/ratan-band/ratan-band.github.io/master/snippet.m4a" />
         <link rel="manifest" href="/site.webmanifest">
-        <link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet">
+        <!-- <link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet"> -->
+        <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
         
         <!-- Facebook Pixel Code -->
         <script>
@@ -165,12 +225,32 @@
 <!--
                 <h1>RATAN</h1>
 -->
-                <img class="album-art" src="drain.jpg" title="RATAN - Drain (2020)"/>
+                <div class="album-container" style="position: relative">
+                    <span class="album-name">RATAN - Drain</span>
+                    <img class="album-art" src="drain.jpg" title="RATAN - Drain (2020)"/>
+                </div>
                 <div class="preview">
                     <audio id="audio snippet" controls controlsList="nodownload" preload="auto">
                         <source src="https://raw.githubusercontent.com/ratan-band/ratan-band.github.io/master/snippet.m4a"/>
                     </audio>
-                    (preview)
+                    (album preview)
+                </div>                
+                <div class="social-buttons">
+                    <a class="social-button"
+                       href="https://www.facebook.com/ratan.band"
+                       onclick="getOutboundLink('https://www.facebook.com/ratan.band'); fbq('track', 'ViewContent', {content_name: 'facebook', content_category: 'social'}); return false;">
+                        <img src="facebook.svg" title="Facebook"/>
+                    </a>
+                    <a class="social-button"
+                       href="https://instagr.am/ratan.band"
+                       onclick="getOutboundLink('https://instagr.am/ratan.band'); fbq('track', 'ViewContent', {content_name: 'instagram', content_category: 'social'}); return false;">
+                        <img src="instagram.svg" title="Instagram"/>
+                    </a>
+                    <a class="social-button"
+                       href="https://twitter.com/ratan__band"
+                       onclick="getOutboundLink('https://twitter.com/ratan__band'); fbq('track', 'ViewContent', {content_name: 'twitter', content_category: 'social'}); return false;">
+                        <img src="twitter.svg" title="Twitter"/>
+                    </a>
                 </div>
                 <a class="button"
                    href="https://open.spotify.com/album/2K4OlP64i0Y0po6taGzVtc"
@@ -184,7 +264,7 @@
                 <a class="button"
                    href="https://music.apple.com/us/album/drain/1525722950"
                    onclick="getOutboundLink('https://music.apple.com/us/album/drain/1525722950'); fbq('track', 'ViewContent', {content_name: 'apple_music', content_category: 'music'}); return false;">
-                    <img src="apple_music.svg" title="Apple Music"/>
+                    <img src="apple_music2.svg" title="Apple Music"/>
                 </a>
                 <a class="button"
                    href="https://ratan.bandcamp.com"
@@ -197,19 +277,34 @@
                     <img src="youtube_music.svg" title="YouTube Music"/>
                 </a>
                 <a class="button"
+                   href="https://youtu.be/zfRGNf262cI?list=OLAK5uy_mWA7f83Hs0PXDXOF0TPXwlf7MJrof96iI"
+                   onclick="getOutboundLink('https://youtu.be/zfRGNf262cI?list=OLAK5uy_mWA7f83Hs0PXDXOF0TPXwlf7MJrof96iI'); fbq('track', 'ViewContent', {content_name: 'youtube', content_category: 'music'}); return false;">
+                    <img src="youtube.svg" title="YouTube"/>
+                </a>
+                <a class="button"
+                   href="https://music.amazon.com/albums/B08DYFGHGJ"
+                   onclick="getOutboundLink('https://music.amazon.com/albums/B08DYFGHGJ'); fbq('track', 'ViewContent', {content_name: 'amazon_music', content_category: 'music'}); return false;">
+                    <img src="amazon_music.svg" title="Amazon Music"/>
+                </a>
+                <a class="button"
+                   href="https://pandora.com/artist/ratan/drain/ALtj55P5vZqmKl9"
+                   onclick="getOutboundLink('https://pandora.com/artist/ratan/drain/ALtj55P5vZqmKl9'); fbq('track', 'ViewContent', {content_name: 'pandora', content_category: 'music'}); return false;">
+                    <img src="pandora.svg" title="Pandora"/>
+                </a>
+                <a class="button"
+                   href="https://www.deezer.com/us/album/164112522"
+                   onclick="getOutboundLink('https://www.deezer.com/us/album/164112522'); fbq('track', 'ViewContent', {content_name: 'deezer', content_category: 'music'}); return false;">
+                    <img src="deezer.svg" title="Deezer"/>
+                </a>
+                <a class="button"
+                   href="https://tidal.com/browse/album/150456926"
+                   onclick="getOutboundLink('https://tidal.com/browse/album/150456926'); fbq('track', 'ViewContent', {content_name: 'tidal', content_category: 'music'}); return false;">
+                    <img src="tidal.svg" title="Tidal"/>
+                </a>
+                <a class="button"
                    href="https://play.google.com/store/music/album/RATAN_Drain?id=Biolkih3u2jhksmie2dnsqhnmea"
                    onclick="getOutboundLink('https://play.google.com/store/music/album/RATAN_Drain?id=Biolkih3u2jhksmie2dnsqhnmea'); fbq('track', 'ViewContent', {content_name: 'google_play', content_category: 'music'}); return false;">
                     <img src="google_play.svg" title="Google Play"/>
-                </a>
-                <a class="button"
-                   href="https://www.facebook.com/ratan.band"
-                   onclick="getOutboundLink('https://www.facebook.com/ratan.band'); fbq('track', 'ViewContent', {content_name: 'facebook', content_category: 'social'}); return false;">
-                    <img src="facebook.svg" title="Facebook"/>
-                </a>
-                <a class="button"
-                   href="https://instagr.am/ratan.band"
-                   onclick="getOutboundLink('https://instagr.am/ratan.band'); fbq('track', 'ViewContent', {content_name: 'instagram', content_category: 'social'}); return false;">
-                    <img src="instagram.svg" title="Instagram"/>
                 </a>
             </div>
         </div>
