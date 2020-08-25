@@ -45,10 +45,10 @@
                 font-size: 1.1em;
                 
                 background-color: #1a1127;
-                background-image: url('drain_bg_small.jpg');
+                background-image: url('drain_bg_2.jpg');
                 background-size: cover;
                 background-repeat: repeat;
-                background-position: center center;
+                background-position: top;
                 background-attachment: fixed;
             }
 
@@ -82,7 +82,10 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-            }            
+                border-radius: 10px;
+                overflow: hidden;
+                position: relative;
+            }
 
             .album-name {
                 margin-bottom: 5px;
@@ -94,8 +97,112 @@
                 max-height:100%;
                 height: auto;
                 width: auto;
-                border-radius: 10px;
                 /*margin-top: 20px;*/
+            }
+
+            audio {
+                filter: grayscale(1) contrast(70%) invert(100%) sepia(5%); 
+                width: 100%;
+                height: 40px;
+                background-color: #FFFFFF;
+            }
+
+            audio::-webkit-media-controls-panel{
+                background-color: #FFFFFF;
+            }
+
+            #controls {
+                display: flex;
+                flex-direction: column
+                width: 100%;
+                height: 100%;
+                justify-content: center;
+            }
+
+            #progress-bar { 
+               /*border-top:1px solid rgba(255,255,255,0.3); */
+               color: #fff; 
+               width: 100%;
+               height:17%;
+               position: absolute;
+               bottom: 0;
+               background-color:rgba(0,0,0,0.3);
+               cursor: pointer;
+               filter: drop-shadow(0 0 0.5rem rgba(0,0,0,0.5));
+            }
+
+            #progress-bar:hover {
+               background-color:rgba(30,30,30,0.3);
+               
+            }
+
+            #progress-bar:hover > #progress {
+               background-color:rgba(255,255,255,1.0);
+            }
+
+            #progress {
+               background-color:rgba(255,255,255,0.8);
+               /*border-right: 1px solid rgba(255,255,255,0.5);*/
+               height:100%;
+               display:block;
+               width: 0%;
+               pointer-events: none;
+            }
+
+            #playpause {
+                /*background-image: url('play_button.svg');*/
+                opacity: 0.8;
+                background: none;
+                width: 100%;
+                color: inherit;
+                border: none;
+                padding: 0;
+                font: inherit;
+                cursor: pointer;
+                outline: inherit;
+            }
+
+            #playpause-image {
+                /*background-image: url('play_button.svg');*/
+                
+                filter: invert(1) drop-shadow(0 0 0.5rem rgba(0,0,0,0.5));
+                background: none;
+                width: 20%;
+                color: inherit;
+                border: none;
+                padding: 0;
+                font: inherit;
+                cursor: pointer;
+                outline: inherit;
+            }
+
+            #playpause:hover {
+                opacity: 1.0;
+            }
+
+            .preview {
+                height: 100%;
+                width: 100%;
+                /*margin-top: 6px;*/
+                /*margin-bottom: -10px;*/
+                /*margin-bottom: 5px;*/
+                position: absolute;
+                bottom: 0;
+                /*font-weight: bold;*/
+            }
+
+            .preview-text {
+                position: absolute;
+                bottom: 17%;
+                text-align: center;
+                /*color: #CCCCCC;*/
+                color: rgba(255,255,255,1.0);
+                opacity: 0.3;
+                font-size: 0.7em;
+                user-select: none;
+                padding-bottom: 3px;
+                pointer-events: none;
+                text-shadow: rgba(0,0,0,1.0) 0 0 3px;
             }
 
             .social-buttons {
@@ -192,25 +299,6 @@
                 color: #555555;
             }
 
-            audio {
-                filter: grayscale(1) contrast(70%) invert(100%) sepia(5%); 
-                width: 100%;
-                height: 40px;
-            }
-
-            .preview {
-                width: 100%;
-                text-align: center;
-                color: #CCCCCC;
-                font-size: 0.7em;
-                margin-top: 6px;
-                /*margin-bottom: -10px;*/
-                user-select: none;
-                float: left;
-                margin-bottom: 5px;
-                /*font-weight: bold;*/
-            }
-
             .blurb {
                 width: 100%;
                 text-align: center;
@@ -245,17 +333,18 @@
                 width: 100%;
                 text-align: center;
                 color: #FFFFFF;
-                text-shadow: #000 0 0 5px;
+                /*text-shadow: #000 0 0 5px;*/
+                text-shadow: rgba(255,255,100,0.4) 0 0 7px;
                 margin-bottom: 10px;
                 /*padding: 15px;*/
                 padding-top: 5px;
                 padding-bottom: 5px;
-                background:
+/*                background:
                 linear-gradient(
                   rgba(0, 0, 0, 0.3), 
                   rgba(0, 0, 0, 0.3)
                 ),
-                url('drain_header.jpg');
+                url('drain_header.jpg');*/
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-position: center center;
@@ -286,6 +375,80 @@
         <link rel="manifest" href="/site.webmanifest">
         <!-- <link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet"> -->
         <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
+
+        <script>
+            var audio;
+
+            function togglePlayPause() {
+               if (audio.paused || audio.ended) {
+                  updateButton(true);
+                  audio.play();
+               } else {
+                  updateButton(false);
+                  audio.pause();
+               }
+            }
+
+            function updateProgress() {
+               var progress = document.getElementById("progress");
+               var value = 0;
+               if (audio.currentTime > 0) {
+                  value = (100 / audio.duration) * audio.currentTime;
+               }
+               progress.style.width = value + "%";
+            }
+
+            function clickEvent(e) {
+              var rect = e.target.getBoundingClientRect();
+              var val = new Object();
+
+              val.x = (e.clientX - rect.left) / rect.width;
+              val.y = (e.clientY - rect.top) / rect.height;
+
+              return val;
+            }
+
+            function setProgress(position) {
+                audio.currentTime = position * audio.duration;
+            }
+
+            function updateButton(playing) {
+                var playpause = document.getElementById("playpause");
+                var playpauseImage = document.getElementById("playpause-image");
+                if (playing) {
+                    playpause.title = "Pause";
+                    playpauseImage.src = "pause_button.svg";
+                } else {
+                    playpauseImage.src = "play_button.svg";
+                    playpause.title = "Play";
+                }
+            }
+
+            window.onload = function(){
+                audio = document.getElementById("audio snippet");
+                // Turn off the default controls
+                audio.controls = false;
+
+                audio.addEventListener("timeupdate", updateProgress, false);
+
+                var progressBar = document.getElementById("progress-bar");
+                progressBar.addEventListener('click', event => {
+                    var clickPosition = clickEvent(event);
+                    setProgress(clickPosition.x);
+               });
+
+                // audio.addEventListener('play', () => {
+                //   audio._updateInterval = setInterval(() => {
+                //     updateProgress();
+                //   }, 25);
+                // }, true);
+
+                // audio.addEventListener('pause', () => clearInterval(audio._updateInterval), true);
+                audio.addEventListener('ended', () => updateButton(false), true);
+            }
+
+
+        </script>
         
         <!-- Facebook Pixel Code -->
         <script>
@@ -318,12 +481,16 @@
                 <div class="album-container">
                     <!-- <span class="album-name">RATAN - Drain</span> -->
                     <img class="album-art" src="drain.jpg" title="RATAN - Drain (2020)"/>
-                </div>
-                <div class="preview">
-                    <audio id="audio snippet" controls controlsList="nodownload" preload="auto">
-                        <source src="https://raw.githubusercontent.com/ratan-band/ratan-band.github.io/master/snippet.m4a"/>
-                    </audio>
-                    (album preview)
+                    <div class="preview">
+                        <audio id="audio snippet" nocontrols controlsList="nodownload" preload="auto">
+                            <source src="https://raw.githubusercontent.com/ratan-band/ratan-band.github.io/master/snippet.m4a"/>
+                        </audio>
+                        <div id="controls">
+                            <div class="preview-text">(album preview)</div>
+                            <button id="playpause" title="play" onclick="togglePlayPause()"><img id="playpause-image" src="play_button.svg"/></button>
+                            <div id="progress-bar"><div id="progress"></div></div>
+                        </div>
+                    </div>
                 </div>
                 <span class="blurb">
                     49 minutes of vibrating
