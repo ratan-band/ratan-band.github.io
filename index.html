@@ -39,17 +39,25 @@
             body, html {
                 margin: 0;
                 padding: 0;
-                background-color: #14191b;
+                background-color: #030302;
                 color: #FFFFFF;
                 font-family: 'Karla', sans-serif;
                 font-size: 1.1em;
-                
-                background-color: #1a1127;
+            }
+
+            .background {
+                background: radial-gradient(#a3a3a3,#896b86, #451c43, #251d40, #0d0a24, #030302);
                 background-image: url('drain_bg_2.jpg');
                 background-size: cover;
                 background-repeat: repeat;
                 background-position: top;
                 background-attachment: fixed;
+                position:fixed;
+                
+                left:0px;
+                top:0px;
+                height: 100vh;
+                width: 100vw;
             }
 
             #content {
@@ -370,10 +378,9 @@
         </style>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
         <meta name="description" content="49 minutes of vibrating instrumental prog metal inspired by Tool. RATAN - Drain out now."/>
-        <meta name="og:image" content="drain.jpg" />
+        <meta name="og:image" content="og_image.jpg" />
         <meta name="og:audio" content="https://raw.githubusercontent.com/ratan-band/ratan-band.github.io/master/snippet.m4a" />
         <link rel="manifest" href="/site.webmanifest">
-        <!-- <link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet"> -->
         <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
 
         <link rel="prefetch" href="play_button.svg" />
@@ -449,8 +456,6 @@
                 // audio.addEventListener('pause', () => clearInterval(audio._updateInterval), true);
                 audio.addEventListener('ended', () => updateButton(false), true);
             }
-
-
         </script>
         
         <!-- Facebook Pixel Code -->
@@ -476,6 +481,7 @@
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMJC2VZ"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
+        <div class="background"></div>
         <div id="content">
             <div id="inner-content">
                 <span class="header">
