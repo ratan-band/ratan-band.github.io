@@ -279,14 +279,29 @@
                 justify-content: center;
                 align-items: center;
                 flex-direction: row;
+            }
 
+            .button-dark {
+                /*background-color: #FAFAF0;*/
+                /*background-color: rgba(80,80,80,.3);*/
+                /*border-top: 2px #000000 solid ;*/
+                /*margin-top: 6px;*/
+                /*border-bottom: 2px #999990 solid;*/
+                padding: 8px 0 8px 0;
+                width: 100%;
+                text-align: center;
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
             }
 
             /*.button:last-of-type {
                 border-bottom: none;
             }*/
 
-            .button:hover {
+            .button:hover:not(.nohover) {
                 background-color: #EAEAE0;
                 background-color: rgba(50, 50, 50, 1.0);
             }
@@ -599,10 +614,9 @@
                        onclick="getOutboundLink('https://tidal.com/browse/album/150456926'); fbq('track', 'ViewContent', {content_name: 'tidal', content_category: 'music'}); return false;">
                         <img src="tidal_dark.svg" title="Tidal"/>
                     </a>
-                    <a class="button"
-                       href="https://play.google.com/store/music/album/RATAN_Drain?id=Biolkih3u2jhksmie2dnsqhnmea"
-                       onclick="getOutboundLink('https://play.google.com/store/music/album/RATAN_Drain?id=Biolkih3u2jhksmie2dnsqhnmea'); fbq('track', 'ViewContent', {content_name: 'google_play', content_category: 'music'}); return false;">
-                        <img src="google_play.svg" title="Google Play"/>
+                    <div class="button nohover">
+                        <iframe src="https://open.spotify.com/follow/1/?uri=spotify:artist:2ZEPuUFJQwkCrux9npgQT4&size=basic&theme=light&show-count=0" width="95" height="25" scrolling="no" frameborder="0" style="border:none; overflow:hidden; transform: scale(1.0)" allowtransparency="true"></iframe>
+                        <!-- <iframe src="https://open.spotify.com/follow/1/?uri=spotify:artist:2ZEPuUFJQwkCrux9npgQT4&size=detail&theme=dark&show-count=0" width="170" height="56" scrolling="no" frameborder="0" style="border:none; overflow:hidden;" allowtransparency="true"></iframe> -->
                     </a>
                 </div>
             </div>
