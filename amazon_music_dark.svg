@@ -57,7 +57,7 @@
 						 M114.3,8.3c0.2,0.2,0.4,0.6,0.4,1c0,0.4-0.1,0.7-0.4,1c-0.2,0.2-0.6,0.4-1,0.4c-0.4,0-0.8-0.1-1-0.4c-0.2-0.2-0.4-0.6-0.4-1
 						c0-0.4,0.1-0.7,0.4-1c0.2-0.2,0.6-0.4,1-0.4C113.7,7.9,114.1,8,114.3,8.3L114.3,8.3z"/>
 				</defs>
-				<use xlink:href="#SVGID_1_"  style="overflow:visible;fill-rule:evenodd;clip-rule:evenodd;fill:#4200FD;"/>
+				<use xlink:href="#SVGID_1_"  style="overflow:visible;fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;"/>
 				<clipPath id="SVGID_2_">
 					<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
 				</clipPath>
