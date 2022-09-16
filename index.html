@@ -9,20 +9,18 @@
             gtag('js', new Date());
 
             gtag('config', 'UA-33922028-2');
-            
+
             /**
-            * Function that registers a click on an outbound link in Analytics.
+            * Function that captures a click on an outbound link in Analytics.
             * This function takes a valid URL string as an argument, and uses that URL string
             * as the event label. Setting the transport method to 'beacon' lets the hit be sent
             * using 'navigator.sendBeacon' in browser that support it.
             */
-            var getOutboundLink = function(url) {
-              gtag('event', 'click', {
-                'event_category': 'outbound',
-                'event_label': url,
-                'transport_type': 'beacon',
-                'event_callback': function(){document.location = url;}
-              });
+            var captureOutboundLink = function(url) {
+               ga('send', 'event', 'outbound', 'click', url, {
+                 'transport': 'beacon',
+                 'hitCallback': function(){document.location = url;}
+               });
             }
         </script>
 
@@ -605,24 +603,24 @@
                 <div class="social-buttons">
                     <a class="social-button"
                        href="https://www.facebook.com/ratan.band"
-                       onclick="getOutboundLink('https://www.facebook.com/ratan.band'); fbq('track', 'ViewContent', {content_name: 'facebook', content_category: 'social'}); return false;">
+                       onclick="captureOutboundLink('https://www.facebook.com/ratan.band'); fbq('track', 'ViewContent', {content_name: 'facebook', content_category: 'social'}); return false;">
                         <img src="facebook.svg" title="Facebook"/>
                     </a>
                     <a class="social-button"
                        href="https://instagr.am/ratan.band"
-                       onclick="getOutboundLink('https://instagr.am/ratan.band'); fbq('track', 'ViewContent', {content_name: 'instagram', content_category: 'social'}); return false;">
+                       onclick="captureOutboundLink('https://instagr.am/ratan.band'); fbq('track', 'ViewContent', {content_name: 'instagram', content_category: 'social'}); return false;">
                         <img src="instagram.svg" title="Instagram"/>
                     </a>
                     <a class="social-button"
                        href="https://twitter.com/ratan__band"
-                       onclick="getOutboundLink('https://twitter.com/ratan__band'); fbq('track', 'ViewContent', {content_name: 'twitter', content_category: 'social'}); return false;">
+                       onclick="captureOutboundLink('https://twitter.com/ratan__band'); fbq('track', 'ViewContent', {content_name: 'twitter', content_category: 'social'}); return false;">
                         <img src="twitter.svg" title="Twitter"/>
                     </a>
                 </div>
                 <div id="buttons">
                     <a class="button"
                        href="https://open.spotify.com/album/2K4OlP64i0Y0po6taGzVtc"
-                       onclick="getOutboundLink('https://open.spotify.com/album/2K4OlP64i0Y0po6taGzVtc'); fbq('track', 'ViewContent', {content_name: 'spotify', content_category: 'music'}); return false;">
+                       onclick="captureOutboundLink('https://open.spotify.com/album/2K4OlP64i0Y0po6taGzVtc'); fbq('track', 'ViewContent', {content_name: 'spotify', content_category: 'music'}); return false;">
                         <img src="spotify_dark.svg" title="Spotify"/>
     <!--
                         <span style="width: 10px"></span>
@@ -631,42 +629,42 @@
                     </a>
                     <a class="button"
                        href="https://music.apple.com/us/album/drain/1525722950"
-                       onclick="getOutboundLink('https://music.apple.com/us/album/drain/1525722950'); fbq('track', 'ViewContent', {content_name: 'apple_music', content_category: 'music'}); return false;">
+                       onclick="captureOutboundLink('https://music.apple.com/us/album/drain/1525722950'); fbq('track', 'ViewContent', {content_name: 'apple_music', content_category: 'music'}); return false;">
                         <img src="apple_music_dark.svg" title="Apple Music"/>
                     </a>
                     <a class="button"
                        href="https://ratan.bandcamp.com"
-                       onclick="getOutboundLink('https://ratan.bandcamp.com'); fbq('track', 'ViewContent', {content_name: 'bandcamp', content_category: 'music'}); return false;">
+                       onclick="captureOutboundLink('https://ratan.bandcamp.com'); fbq('track', 'ViewContent', {content_name: 'bandcamp', content_category: 'music'}); return false;">
                         <img src="bandcamp_dark.svg" title="Bandcamp"/>
                     </a>
                     <a class="button"
                        href="https://music.youtube.com/playlist?list=OLAK5uy_mRBPcmTSovcmsme3H5e-WlPPygchRS_2c"
-                       onclick="getOutboundLink('https://music.youtube.com/playlist?list=OLAK5uy_mRBPcmTSovcmsme3H5e-WlPPygchRS_2c'); fbq('track', 'ViewContent', {content_name: 'youtube_music', content_category: 'music'}); return false;">
+                       onclick="captureOutboundLink('https://music.youtube.com/playlist?list=OLAK5uy_mRBPcmTSovcmsme3H5e-WlPPygchRS_2c'); fbq('track', 'ViewContent', {content_name: 'youtube_music', content_category: 'music'}); return false;">
                         <img src="youtube_music_dark.svg" title="YouTube Music"/>
                     </a>
                     <a class="button"
                        href="https://youtu.be/zfRGNf262cI?list=OLAK5uy_mWA7f83Hs0PXDXOF0TPXwlf7MJrof96iI"
-                       onclick="getOutboundLink('https://youtu.be/zfRGNf262cI?list=OLAK5uy_mWA7f83Hs0PXDXOF0TPXwlf7MJrof96iI'); fbq('track', 'ViewContent', {content_name: 'youtube', content_category: 'music'}); return false;">
+                       onclick="captureOutboundLink('https://youtu.be/zfRGNf262cI?list=OLAK5uy_mWA7f83Hs0PXDXOF0TPXwlf7MJrof96iI'); fbq('track', 'ViewContent', {content_name: 'youtube', content_category: 'music'}); return false;">
                         <img src="youtube_dark.svg" title="YouTube"/>
                     </a>
                     <a class="button"
                        href="https://music.amazon.com/albums/B08DYFGHGJ"
-                       onclick="getOutboundLink('https://music.amazon.com/albums/B08DYFGHGJ'); fbq('track', 'ViewContent', {content_name: 'amazon_music', content_category: 'music'}); return false;">
+                       onclick="captureOutboundLink('https://music.amazon.com/albums/B08DYFGHGJ'); fbq('track', 'ViewContent', {content_name: 'amazon_music', content_category: 'music'}); return false;">
                         <img src="amazon_music_dark.svg" title="Amazon Music"/>
                     </a>
                     <a class="button"
                        href="https://pandora.com/artist/ratan/drain/ALtj55P5vZqmKl9"
-                       onclick="getOutboundLink('https://pandora.com/artist/ratan/drain/ALtj55P5vZqmKl9'); fbq('track', 'ViewContent', {content_name: 'pandora', content_category: 'music'}); return false;">
+                       onclick="captureOutboundLink('https://pandora.com/artist/ratan/drain/ALtj55P5vZqmKl9'); fbq('track', 'ViewContent', {content_name: 'pandora', content_category: 'music'}); return false;">
                         <img src="pandora_dark.svg" title="Pandora"/>
                     </a>
                     <a class="button"
                        href="https://www.deezer.com/us/album/164112522"
-                       onclick="getOutboundLink('https://www.deezer.com/us/album/164112522'); fbq('track', 'ViewContent', {content_name: 'deezer', content_category: 'music'}); return false;">
+                       onclick="captureOutboundLink('https://www.deezer.com/us/album/164112522'); fbq('track', 'ViewContent', {content_name: 'deezer', content_category: 'music'}); return false;">
                         <img src="deezer_dark.svg" title="Deezer"/>
                     </a>
                     <a class="button"
                        href="https://tidal.com/browse/album/150456926"
-                       onclick="getOutboundLink('https://tidal.com/browse/album/150456926'); fbq('track', 'ViewContent', {content_name: 'tidal', content_category: 'music'}); return false;">
+                       onclick="captureOutboundLink('https://tidal.com/browse/album/150456926'); fbq('track', 'ViewContent', {content_name: 'tidal', content_category: 'music'}); return false;">
                         <img src="tidal_dark.svg" title="Tidal"/>
                     </a>
                 </div>
