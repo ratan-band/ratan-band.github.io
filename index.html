@@ -378,6 +378,22 @@
                 font-size: 13.5vw;
             }
 
+            .yt-embed-container {
+                position: relative;
+                width: 100%;
+                height: 0;
+                padding-bottom: 56.25%;  /* 9/16 */
+            }
+
+            .yt-embed-video {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+            }
+
             @media (max-width: 480px) {
                 #inner-content {
                     width: 90%;
@@ -544,11 +560,10 @@
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '580541969279482');
-        fbq('init', '188154723510496');
         fbq('track', 'PageView');
         </script>
         <noscript><img height="1" width="1" src="https://www.facebook.com/tr?id=580541969279482&ev=PageView&noscript=1"/></noscript>
-        <noscript><img height="1" width="1" src="https://www.facebook.com/tr?id=188154723510496&ev=PageView&noscript=1"/></noscript>
+        <!-- End Facebook Pixel Code -->
     </head>
     <body>
         <!-- Google Tag Manager (noscript) -->
@@ -563,8 +578,10 @@
                     <!-- <img src="logo_without_box.svg"/> -->
                     <h1>RATAN</h1>
                 </span>
-                <div class="album-container">
-                    <!-- <span class="album-name">RATAN - Drain</span> -->
+                <div class="yt-embed-container">
+                    <iframe class="yt-embed-video" src="https://www.youtube.com/embed/Lbp7uu98iFo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <!-- <div class="album-container">
                     <img class="album-art" src="drain.jpg" title="RATAN - Drain (2020)"/>
                     <div class="preview">
                         <audio id="audio snippet" nocontrols controlsList="nodownload" preload="auto">
@@ -578,7 +595,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <span class="blurb">
                     49 minutes of vibrating
                     <br/>
