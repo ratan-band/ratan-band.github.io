@@ -277,27 +277,16 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                flex-direction: row;
             }
 
-            .button-dark {
-                /*background-color: #FAFAF0;*/
-                /*background-color: rgba(80,80,80,.3);*/
-                /*border-top: 2px #000000 solid ;*/
-                /*margin-top: 6px;*/
-                /*border-bottom: 2px #999990 solid;*/
-                padding: 8px 0 8px 0;
-                width: 100%;
-                text-align: center;
-                height: 50px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: row;
-            }
-
-            .button:last-child:nth-child(2n - 1) {
+            .button:first-child:nth-last-child(odd) {
                 grid-column: span 2;
+            }
+
+            .button:first-child:nth-last-child(odd) img {
+                height: 100%;
+                max-width: 240px;
+                max-height: 50px;
             }
 
             .button:hover:not(.nohover) {
@@ -608,21 +597,35 @@
                 <div class="social-buttons">
                     <a class="social-button"
                        href="https://www.facebook.com/ratan.band"
+                       rel="me"
                        onclick="fbq('track', 'ViewContent', {content_name: 'facebook', content_category: 'social'});">
                         <img src="facebook.svg" title="Facebook"/>
                     </a>
                     <a class="social-button"
                        href="https://instagr.am/ratan.band"
+                       rel="me"
                        onclick="fbq('track', 'ViewContent', {content_name: 'instagram', content_category: 'social'});">
                         <img src="instagram.svg" title="Instagram"/>
                     </a>
                     <a class="social-button"
                        href="https://twitter.com/ratan__band"
+                       rel="me"
                        onclick="fbq('track', 'ViewContent', {content_name: 'twitter', content_category: 'social'});">
                         <img src="twitter.svg" title="Twitter"/>
                     </a>
+                    <a class="social-button"
+                       href="https://metalhead.club/@ratan"
+                       rel="me"
+                       onclick="fbq('track', 'ViewContent', {content_name: 'mastodon', content_category: 'social'});">
+                        <img src="mastodon.svg" title="Mastodon"/>
+                    </a>
                 </div>
                 <div id="buttons">
+                    <a class="button"
+                       href="https://ratan.bandcamp.com"
+                       onclick="fbq('track', 'ViewContent', {content_name: 'bandcamp', content_category: 'music'});">
+                        <img src="bandcamp_dark.svg" title="Bandcamp"/>
+                    </a>
                     <a class="button"
                        href="https://open.spotify.com/album/2K4OlP64i0Y0po6taGzVtc"
                        onclick="fbq('track', 'ViewContent', {content_name: 'spotify', content_category: 'music'});">
@@ -636,11 +639,6 @@
                        href="https://music.apple.com/us/album/drain/1525722950"
                        onclick="fbq('track', 'ViewContent', {content_name: 'apple_music', content_category: 'music'});">
                         <img src="apple_music_dark.svg" title="Apple Music"/>
-                    </a>
-                    <a class="button"
-                       href="https://ratan.bandcamp.com"
-                       onclick="fbq('track', 'ViewContent', {content_name: 'bandcamp', content_category: 'music'});">
-                        <img src="bandcamp_dark.svg" title="Bandcamp"/>
                     </a>
                     <a class="button"
                        href="https://music.youtube.com/playlist?list=OLAK5uy_mRBPcmTSovcmsme3H5e-WlPPygchRS_2c"
