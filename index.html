@@ -1,29 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-33922028-2"></script>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-TM11KGRMB4"></script>
         <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
 
-            gtag('config', 'UA-33922028-2');
-            
-            /**
-            * Function that registers a click on an outbound link in Analytics.
-            * This function takes a valid URL string as an argument, and uses that URL string
-            * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-            * using 'navigator.sendBeacon' in browser that support it.
-            */
-            var getOutboundLink = function(url) {
-              gtag('event', 'click', {
-                'event_category': 'outbound',
-                'event_label': url,
-                'transport_type': 'beacon',
-                'event_callback': function(){document.location = url;}
-              });
-            }
+          gtag('config', 'G-TM11KGRMB4');
         </script>
 
         <!-- Google Tag Manager -->
@@ -47,6 +32,10 @@
                 color: #FFFFFF;
                 font-family: 'Karla', sans-serif;
                 font-size: 1.1em;
+            }
+
+            a {
+                text-decoration: none;
             }
 
             .background {
@@ -263,7 +252,7 @@
                 max-height: 40px;
             }
 
-            #buttons {
+            .buttons {
                 margin-top: 6px;
                 width: 100%;
                 display: grid;
@@ -292,27 +281,16 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                flex-direction: row;
             }
 
-            .button-dark {
-                /*background-color: #FAFAF0;*/
-                /*background-color: rgba(80,80,80,.3);*/
-                /*border-top: 2px #000000 solid ;*/
-                /*margin-top: 6px;*/
-                /*border-bottom: 2px #999990 solid;*/
-                padding: 8px 0 8px 0;
-                width: 100%;
-                text-align: center;
-                height: 50px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: row;
-            }
-
-            .button:last-child:nth-child(2n - 1) {
+            .button:first-child:nth-last-child(odd) {
                 grid-column: span 2;
+            }
+
+            .button:first-child:nth-last-child(odd) img {
+                height: 100%;
+                max-width: 240px;
+                max-height: 50px;
             }
 
             .button:hover:not(.nohover) {
@@ -326,13 +304,25 @@
                 max-height: 50px;
             }
 
-            a {
-                color: #000000;
-                text-decoration: none;
+            .store-buttons {
+                margin-top: 0px;
+                margin-bottom: 11px;
+                box-shadow: 0 0 7px 1px rgba(255, 255, 200, 0.3), inset 0 0 15px 5px rgba(255, 255, 200, 0.3);
             }
 
-            a:hover {
-                color: #555555;
+            .store-button {
+                background-color: rgba(90,90,60,.5);
+                color: #FFFFFF;
+                font-weight: bold;
+                font-size: 1.2em;
+                text-shadow: #000 0 0 3px;
+                user-select: none;
+            }
+            .store-button:hover:not(.nohover) {
+                background-color: rgba(130,130,90,.5);
+            }
+            .store_button a:hover {
+                color: #FFFFFF;
             }
 
             .blurb {
@@ -391,6 +381,22 @@
                 margin-right:-.5em;
                 user-select: none;
                 font-size: 13.5vw;
+            }
+
+            .yt-embed-container {
+                position: relative;
+                width: 100%;
+                height: 0;
+                padding-bottom: 56.25%;  /* 9/16 */
+            }
+
+            .yt-embed-video {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
             }
 
             @media (max-width: 480px) {
@@ -473,6 +479,7 @@
         <link rel="manifest" href="/site.webmanifest">
         <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
 
+        <!--HTML5 audio controls code
         <link rel="prefetch" href="play_button.svg" />
         <link rel="prefetch" href="pause_button.svg" />
 
@@ -547,6 +554,7 @@
                 audio.addEventListener('ended', () => updateButton(false), true);
             }
         </script>
+        -->
         
         <!-- Facebook Pixel Code -->
         <script>
@@ -559,11 +567,9 @@
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '580541969279482');
-        fbq('init', '188154723510496');
         fbq('track', 'PageView');
         </script>
         <noscript><img height="1" width="1" src="https://www.facebook.com/tr?id=580541969279482&ev=PageView&noscript=1"/></noscript>
-        <noscript><img height="1" width="1" src="https://www.facebook.com/tr?id=188154723510496&ev=PageView&noscript=1"/></noscript>
         <!-- End Facebook Pixel Code -->
     </head>
     <body>
@@ -574,13 +580,24 @@
         <div class="background"></div>
         <div id="content">
             <div id="inner-content">
+                <!-- <div style="background-color: rgba(255,255,255,0.4); width: 200%;">
+                    <div style="width: 50%; padding-left: 50%">
+                        <img src="logo_without_box.svg" style="width: 100%"/> 
+                    </div>
+                </div> -->
                 <span class="header">
                     <!-- <img src="logo_with_box.svg" style="border-radius: 10px; border: 0px solid white;"/> -->
-                    <!-- <img src="logo_without_box.svg"/> -->
-                    <h1>RATAN</h1>
+                    <!-- <div style="background-color: rgba(255,255,255,0.15); padding: 15px; border-radius: 10px; border: 0px solid rgba(255,255,255,1.2)"> -->
+                    <!-- <div style="background-color: rgba(0,0,0,0.15); padding: 15px; border-radius: 10px; border-bottom: 10px solid rgba(255,255,255,1.0)"> -->
+                    <!-- <div style="background-color: rgba(0,0,0,0.2); padding: 15px; border-radius: 10px; border-bottom: 0px solid rgba(255,255,255,1.0)"> -->
+                    <!-- <div style="background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.3)); padding: 15px; border-radius: 10px; border: 0px solid rgba(255,255,255,1.0)"> -->
+                    <div style="padding: 15px 0px 15px 0px;"> <img src="logo_without_box.svg" alt="RATAN"/> </div>
+                    <!-- <h1>RATAN</h1> -->
                 </span>
-                <div class="album-container">
-                    <!-- <span class="album-name">RATAN - Drain</span> -->
+                <div class="yt-embed-container">
+                    <iframe class="yt-embed-video" src="https://www.youtube.com/embed/Lbp7uu98iFo?enablejsapi=1&origin=https://ratan.band" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <!-- <div class="album-container">
                     <img class="album-art" src="drain.jpg" title="RATAN - Drain (2020)"/>
                     <div class="preview">
                         <audio id="audio snippet" nocontrols controlsList="nodownload" preload="auto">
@@ -594,7 +611,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <span class="blurb">
                     49 minutes of vibrating
                     <br/>
@@ -602,28 +619,49 @@
                     <br/>
                     inspired by Tool
                 </span>
+                <div class="buttons store-buttons">
+                    <a class="button store-button"
+                       href="https://store.ratan.band"
+                       onclick="fbq('track', 'ViewContent', {content_name: 'merch', content_category: 'store'});">
+                       Merch
+                    </a>
+                </div>
                 <div class="social-buttons">
                     <a class="social-button"
                        href="https://www.facebook.com/ratan.band"
-                       onclick="getOutboundLink('https://www.facebook.com/ratan.band'); fbq('track', 'ViewContent', {content_name: 'facebook', content_category: 'social'}); return false;">
-                        <img src="facebook.svg" title="Facebook"/>
+                       rel="me"
+                       onclick="fbq('track', 'ViewContent', {content_name: 'facebook', content_category: 'social'});">
+                        <img src="facebook.svg" alt="Facebook"/>
                     </a>
                     <a class="social-button"
                        href="https://instagr.am/ratan.band"
-                       onclick="getOutboundLink('https://instagr.am/ratan.band'); fbq('track', 'ViewContent', {content_name: 'instagram', content_category: 'social'}); return false;">
-                        <img src="instagram.svg" title="Instagram"/>
+                       rel="me"
+                       onclick="fbq('track', 'ViewContent', {content_name: 'instagram', content_category: 'social'});">
+                        <img src="instagram.svg" alt="Instagram"/>
                     </a>
                     <a class="social-button"
-                       href="https://twitter.com/ratan__band"
-                       onclick="getOutboundLink('https://twitter.com/ratan__band'); fbq('track', 'ViewContent', {content_name: 'twitter', content_category: 'social'}); return false;">
-                        <img src="twitter.svg" title="Twitter"/>
+                       href="https://x.com/ratan__band"
+                       rel="me"
+                       onclick="fbq('track', 'ViewContent', {content_name: 'twitter', content_category: 'social'});">
+                        <img src="x.svg" alt="X"/>
+                    </a>
+                    <a class="social-button"
+                       href="https://metalhead.club/@ratan"
+                       rel="me"
+                       onclick="fbq('track', 'ViewContent', {content_name: 'mastodon', content_category: 'social'});">
+                        <img src="mastodon.svg" alt="Mastodon"/>
                     </a>
                 </div>
-                <div id="buttons">
+                <div class="buttons">
+                    <a class="button"
+                       href="https://ratan.bandcamp.com"
+                       onclick="fbq('track', 'ViewContent', {content_name: 'bandcamp', content_category: 'music'});">
+                        <img src="bandcamp_dark.svg" alt="Bandcamp"/>
+                    </a>
                     <a class="button"
                        href="https://open.spotify.com/album/2K4OlP64i0Y0po6taGzVtc"
-                       onclick="getOutboundLink('https://open.spotify.com/album/2K4OlP64i0Y0po6taGzVtc'); fbq('track', 'ViewContent', {content_name: 'spotify', content_category: 'music'}); return false;">
-                        <img src="spotify_dark.svg" title="Spotify"/>
+                       onclick="fbq('track', 'ViewContent', {content_name: 'spotify', content_category: 'music'});">
+                        <img src="spotify_dark.svg" alt="Spotify"/>
     <!--
                         <span style="width: 10px"></span>
                         <iframe src="https://open.spotify.com/follow/1/?uri=spotify:artist:2ZEPuUFJQwkCrux9npgQT4&size=basic&theme=light" width="95" height="25" scrolling="no" frameborder="0" style="border:none; overflow:hidden;" allowtransparency="true"></iframe>
@@ -631,43 +669,38 @@
                     </a>
                     <a class="button"
                        href="https://music.apple.com/us/album/drain/1525722950"
-                       onclick="getOutboundLink('https://music.apple.com/us/album/drain/1525722950'); fbq('track', 'ViewContent', {content_name: 'apple_music', content_category: 'music'}); return false;">
-                        <img src="apple_music_dark.svg" title="Apple Music"/>
-                    </a>
-                    <a class="button"
-                       href="https://ratan.bandcamp.com"
-                       onclick="getOutboundLink('https://ratan.bandcamp.com'); fbq('track', 'ViewContent', {content_name: 'bandcamp', content_category: 'music'}); return false;">
-                        <img src="bandcamp_dark.svg" title="Bandcamp"/>
+                       onclick="fbq('track', 'ViewContent', {content_name: 'apple_music', content_category: 'music'});">
+                        <img src="apple_music_dark.svg" alt="Apple Music"/>
                     </a>
                     <a class="button"
                        href="https://music.youtube.com/playlist?list=OLAK5uy_mRBPcmTSovcmsme3H5e-WlPPygchRS_2c"
-                       onclick="getOutboundLink('https://music.youtube.com/playlist?list=OLAK5uy_mRBPcmTSovcmsme3H5e-WlPPygchRS_2c'); fbq('track', 'ViewContent', {content_name: 'youtube_music', content_category: 'music'}); return false;">
-                        <img src="youtube_music_dark.svg" title="YouTube Music"/>
+                       onclick="fbq('track', 'ViewContent', {content_name: 'youtube_music', content_category: 'music'});">
+                        <img src="youtube_music_dark.svg" alt="YouTube Music"/>
                     </a>
                     <a class="button"
                        href="https://youtu.be/zfRGNf262cI?list=OLAK5uy_mWA7f83Hs0PXDXOF0TPXwlf7MJrof96iI"
-                       onclick="getOutboundLink('https://youtu.be/zfRGNf262cI?list=OLAK5uy_mWA7f83Hs0PXDXOF0TPXwlf7MJrof96iI'); fbq('track', 'ViewContent', {content_name: 'youtube', content_category: 'music'}); return false;">
-                        <img src="youtube_dark.svg" title="YouTube"/>
+                       onclick="fbq('track', 'ViewContent', {content_name: 'youtube', content_category: 'music'});">
+                        <img src="youtube_dark.svg" alt="YouTube"/>
                     </a>
                     <a class="button"
                        href="https://music.amazon.com/albums/B08DYFGHGJ"
-                       onclick="getOutboundLink('https://music.amazon.com/albums/B08DYFGHGJ'); fbq('track', 'ViewContent', {content_name: 'amazon_music', content_category: 'music'}); return false;">
-                        <img src="amazon_music_dark.svg" title="Amazon Music"/>
+                       onclick="fbq('track', 'ViewContent', {content_name: 'amazon_music', content_category: 'music'});">
+                        <img src="amazon_music_dark.svg" alt="Amazon Music"/>
                     </a>
                     <a class="button"
                        href="https://pandora.com/artist/ratan/drain/ALtj55P5vZqmKl9"
-                       onclick="getOutboundLink('https://pandora.com/artist/ratan/drain/ALtj55P5vZqmKl9'); fbq('track', 'ViewContent', {content_name: 'pandora', content_category: 'music'}); return false;">
-                        <img src="pandora_dark.svg" title="Pandora"/>
+                       onclick="fbq('track', 'ViewContent', {content_name: 'pandora', content_category: 'music'});">
+                        <img src="pandora_dark.svg" alt="Pandora"/>
                     </a>
                     <a class="button"
                        href="https://www.deezer.com/us/album/164112522"
-                       onclick="getOutboundLink('https://www.deezer.com/us/album/164112522'); fbq('track', 'ViewContent', {content_name: 'deezer', content_category: 'music'}); return false;">
-                        <img src="deezer_dark.svg" title="Deezer"/>
+                       onclick="fbq('track', 'ViewContent', {content_name: 'deezer', content_category: 'music'});">
+                        <img src="deezer_dark.svg" alt="Deezer"/>
                     </a>
                     <a class="button"
                        href="https://tidal.com/browse/album/150456926"
-                       onclick="getOutboundLink('https://tidal.com/browse/album/150456926'); fbq('track', 'ViewContent', {content_name: 'tidal', content_category: 'music'}); return false;">
-                        <img src="tidal_dark.svg" title="Tidal"/>
+                       onclick="fbq('track', 'ViewContent', {content_name: 'tidal', content_category: 'music'});">
+                        <img src="tidal_dark.svg" alt="Tidal"/>
                     </a>
                 </div>
             </div>
